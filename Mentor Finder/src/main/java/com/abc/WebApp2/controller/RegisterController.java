@@ -65,6 +65,9 @@ public class RegisterController {
         {
             model.addAttribute("error", "Password doesn't not match");
             return "Register";
+        }else if(password.trim().equals("")){
+            model.addAttribute("error", "Password must not be empty");
+            return "Register";
         }
         else if(lcs.checkLoginInfo(username, password) != -1L)
         {
